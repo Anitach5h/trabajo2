@@ -1,0 +1,75 @@
+.contenedor-principal {
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 90px;
+  background-image: url("../imagenes/fondo-benja.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.contenedor-interno {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 3px solid rgba(0, 0, 0, 0.57);
+  margin-right: 28em;
+  margin-left: 28em;
+  margin-top: 80px;
+  padding-bottom: 100px;
+  backdrop-filter: blur(20px);
+}
+
+.titulo {
+  font-size: 40px;
+  font-weight: 100;
+  font-family: sans-serif;
+  margin-top: 1em;
+  padding-top: 50px;
+  color: white;
+
+}
+
+.agregar-tarea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Ajusta según tus necesidades */
+  margin-bottom: 20px; /* Ajusta según tus necesidades */
+}
+
+.agregar-tarea .agregar-input {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+}
+
+.agregar-input::placeholder {
+  color: black;
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
+.agregar-tarea button {
+  background-color: crimson;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 26px;
+  padding-right: 26px;
+  font-size: 20px;
+  margin-top: 24px;
+}
+
+button:hover {
+  background-color: #fd0000;
+}

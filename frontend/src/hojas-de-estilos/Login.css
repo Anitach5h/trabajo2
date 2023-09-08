@@ -1,0 +1,283 @@
+.encabezado {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  z-index: 99;
+  background: transparent;
+}
+
+.encabezado .barra-navegador a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.encabezado .buscar input {
+  background: transparent;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid white;
+  padding-left: 10px;
+  right: 100px;
+  text-align: left;
+  outline: none;
+  color: white;
+}
+
+.encabezado .buscar i {
+  position: absolute;
+  right: 110px;
+  top: 22px;
+  color: white;
+}
+
+.fondo {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../imagenes/paisaje-fondo-Login.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.inicio {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+  background-image: url('../imagenes/paisaje-fondo-Login.png');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: none;
+}
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  padding: 100px 0;
+}
+
+.contenido a {
+  position: relative;
+  text-decoration: none;
+  text-align: left;
+  color: white;
+  font-size: 3em;
+  font-weight: 700;
+  top: -60px;
+  left: 50px;
+}
+
+.contenido h2 {
+  margin-top: -45px;
+  margin-bottom: 13px;
+  font-size: 3.5em;
+  text-align: center;
+  color: white;
+}
+
+.contenido h3 {
+  font-size: 2em;
+  text-align: center;
+  color: white;
+}
+
+.contenido p {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 50px;
+  text-align: justify;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  /*letter-spacing: normal;
+  white-space: nowrap;
+  overflow: hidden;  ESTO TAMBIEN ES PARTE DEL EFECTO
+  border-left: 2px solid white; 
+  animation: tipeo 3.5s steps(40) infinite,
+  cursor .75s steps(40) infinite;*/
+}
+
+/*@keyframes tipeo{
+  from {width :0;}
+  to {width: 100%;}
+}
+EFECTO MAQUINA DE ESCRIBIR NO QUEDA BIEN, QUEDA BIEN SI ES UN TEXTO CORTO
+@keyframes cursor{
+  from, to {border-color: transparent;}
+  50% {border-color: white;}
+}*/
+
+.loguearse {
+  width: 450px;
+  position: relative;
+  padding: 100px 30px;
+  backdrop-filter: blur(15px);
+}
+
+.loguearse h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-top: -46px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.loguearse .entrada {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 40px;
+}
+
+.loguearse .entrada .input1 {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid white;
+  color: white;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+.controlar {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.controlar input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 4px;
+  margin-right: 8px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.controlar input[type="checkbox"]:checked::before {
+  content: '\2713';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: rgb(241, 241, 241);
+}
+
+.pregunta {
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  padding-bottom: 20px;
+}
+
+.pregunta .link {
+  color: white;
+  text-decoration: none;
+}
+
+.pregunta a::hover {
+  text-decoration: underline;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+  font-size: 18px;
+}
+
+.loguearse .boton {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 100%;
+  height: 40px;
+  background-color: crimson;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 7px;
+  color: white;
+}
+
+.btn:active {
+  font-size: 25px;
+}
+
+.loguearse .registrarse {
+  display: flex;
+  justify-content: center;
+
+}
+
+.registrate p {
+  margin-bottom: 5px;
+  color: white;
+  text-align: center;
+}
+
+.registrate a {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+
+}
+
+.registrate a:hover {
+  text-decoration: underline;
+}
+
+.caja-del-boton {
+  display: inline-block;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin-top: 9px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.boton-secundario:active,
+.caja-del-boton:active {
+  background-color: black;
+  color: white;
+}
+
+.boton-secundario {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 1px;
+}
