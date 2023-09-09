@@ -94,7 +94,7 @@ function Login() {
           </div>
           <div className="registrate">
             <p>No tengo una cuenta...</p>
-            <Link to="/registro">Registrarte Aquí</Link>
+            <Link to="/Sigin">Registrarte Aquí</Link>
           </div>
         </div>
       </section>
