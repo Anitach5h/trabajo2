@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework import status
+
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import logout
 from django.http import JsonResponse
@@ -79,3 +80,9 @@ def listaTarea(request):
     tareas = Tarea.objects.all()
     serializer = TareaSerializers(tareas, many=True)
     return Response(serializer.data)
+
+@api_view(['DELETE'])
+def eliminarTarea(request, pk):
+        tarea= Tarea.objects.get(id=pk)
+        tarea.delete()
+        return Response (serializer.data)
