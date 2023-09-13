@@ -60,15 +60,15 @@ def test_token(request):
     return Response("¡Aprobado!")
 
 
-#Crear conjunto de vistas Tareas
+#Crear conjunto de vistas
 @api_view(['GET'])
-def ApiTareas(request):
+def DetalleApi(request):
     api_urls = {
-        'List':'/tasks-list/',
-        'Create':'/tasks-create/',
-        'Detail View':'/tasks-detail/<str:pk>/',
-        'Update':'/tasks-update/<str:pk>/',
-        'Delete':'/tasks-delete/<str:pk>/',
+        'List':'/task-list/',
+        'Create':'/task-create/',
+        'Detail View':'/task-detail/<str:pk>/',
+        'Update':'/task-update/<str:pk>/',
+        'Delete':'/task-delete/<str:pk>/',
     }
     return Response(api_urls)
 
@@ -77,17 +77,6 @@ def listaTarea(request):
     tareas = Tarea.objects.all()
     serializer = TareaSerializers(tareas, many=True)
     return Response(serializer.data)
-
-
-
-
-
-
-
-
-
-
-
 
 @api_view(['GET'])
 def detalleTarea(request, pk):
@@ -111,3 +100,17 @@ def actualizarTarea(request, pk):
         serializer.save()        
         return Response({"tarea actualizada": serializer.data})
     return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['DELETE'])
+def eliminarTarea(request, pk):
+    tarea = Tarea.objects.get(id=pk)
+    tarea.delete()
+    return Response({"Mensaje": "¡Eliminado exitosamente!"}, status=status.HTTP_200_OK)
+
+"""
+@api_view(['DELETE'])
+def eliminarTarea(request, pk):
+    tarea = get_object_or_404(Tarea, id=pk)
+    tarea.delete()
+    return Response({"Mensaje": "¡Eliminado exitosamente!"}, status=status.HTTP_202_ACCEPTED)
+"""

@@ -20,6 +20,13 @@ from tasks import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.DetalleApi, name='home'),
+    path('registrar/', views.registrar_usuario, name='registrar'),
+    path('acceder/', views.iniciar_sesion, name='acceder'),
+    path('logout/', views.logout, name='logout'),
     path('task-list/', views.listaTarea, name="task-list"),
-    path('logout/', views.logout, name='logout')
+    path('task-create/', views.crearTarea, name="task-create"),
+    path('task-detail/<str:pk>//', views.detalleTarea, name="task-detail"),
+    path('task-update/<str:pk>/', views.actualizarTarea, name="task-update"),
+    path('task-delete/<str:pk>/', views.eliminarTarea, name="task-delete"),
 ]
