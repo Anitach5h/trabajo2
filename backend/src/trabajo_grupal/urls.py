@@ -21,4 +21,5 @@ from tasks import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('task-list/', views.listaTarea, name="task-list"),
+    path('logout/', views.logout, name='logout')
 ]

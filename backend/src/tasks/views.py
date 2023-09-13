@@ -7,6 +7,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+from django.contrib.auth import logout
+from django.http import JsonResponse
 
 # Tareas
 from .models import Tarea
@@ -35,8 +37,14 @@ def iniciar_sesion(request):
     serializer = UsuarioSerializer(instance=user)
     return Response({"token": token.key, "usuario": serializer.data}, status=status.HTTP_200_OK)
 
-"""
-Modificación: Falta completar
+def logout(request):
+    if request.user.is_authenticated:
+        return JsonResponse({"Mensaje": "Sesion cerrada correctamente"}, status=status.HTTP_200_OK)
+    else:
+        return JsonResponse({"Mensaje": "No hay sesion activa"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+"""Modificación:
 
 @api_view(['GET'])
 def cerrar_sesion(request):
