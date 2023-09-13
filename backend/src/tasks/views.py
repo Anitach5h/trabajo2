@@ -43,16 +43,14 @@ def logout(request):
     else:
         return JsonResponse({"Mensaje": "No hay sesion activa"}, status=status.HTTP_400_BAD_REQUEST)
 
-
-"""Modificación:
-
-@api_view(['GET'])
-def cerrar_sesion(request):
-
-    request.user.auth_token.delete()
-    return Response({"Mensaje": "Sesión cerrada correctamente"}, status=status.HTTP_200_OK)
-
 """
+función completada:
+@api_view(['POST'])
+def cerrar_sesion(request):
+    if request.method == "POST":
+        request.user.auth_token.delete()
+        return Response({"Mensaje": "Sesión cerrada correctamente"}, status=status.HTTP_200_OK)
+"""   
 
 @api_view(['GET'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
@@ -61,10 +59,9 @@ def test_token(request):
     return Response("¡Aprobado!")
 
 
-# Vistas basadas en funciones
-#Definir urls Tareas
+#Crear conjunto de vistas Tareas
 @api_view(['GET'])
-def urlsTareas(request):
+def ApiTareas(request):
     api_urls = {
         'List':'/tasks-list/',
         'Create':'/tasks-create/',
@@ -79,3 +76,26 @@ def listaTarea(request):
     tareas = Tarea.objects.all()
     serializer = TareaSerializers(tareas, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def detalleTarea(request, pk):
+    tarea = Tarea.objects.get(id=pk)
+    serializer = TareaSerializers(tarea, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def crearTarea(request):
+    serializer = TareaSerializers(data=request.data)
+    if serializer.is_valid():
+        serializer.save()        
+        return Response({"tarea": serializer.data}, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['POST'])
+def actualizarTarea(request, pk):
+    tarea = Tarea.objects.get(id=pk)
+    serializer = TareaSerializers(instance=tarea, data=request.data)
+    if serializer.is_valid():
+        serializer.save()        
+        return Response({"tarea actualizada": serializer.data})
+    return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
