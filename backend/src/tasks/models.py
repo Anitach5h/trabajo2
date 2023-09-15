@@ -1,6 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
+from rest_framework import serializers
+from .models import Tarea
+from django.db import models
 
+#Filtrado
+#Por fecha
+class Tarea(models.Model):
+    fecha= models.DateField(auto_now_True)
+
+class TareaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Tarea
+        fields=("id","nombre","hecha")
 # Modelo Tarea.
 class Tarea(models.Model):
     title = models.CharField(max_length=120)

@@ -6,14 +6,38 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import APIView
 
 from django.shortcuts import get_object_or_404
+from django.shortcuts import HttpResponse
 from django.contrib.auth import logout
 from django.http import JsonResponse
+from datetime import date
 
 # Tareas
 from .models import Tarea
 from .serializers import TareaSerializers
+
+#Tareas Hechas
+class TareasHechas(APIView):
+    def get(self, request):
+        tareas=Tarea.objects.filter(hecha=True)
+        serializer=TareaSerializers(tareas, many=True)
+        return Response(serializer.data)
+
+#Filtrar tareas por fecha
+def filtrar_tareas_por_fecha(request):
+    #obtener la fecha actual
+    fecha_actual=date.today()
+
+    #filtrado de tareas po fechas
+    tareas=Tarea.objects.filter(fecha__gte=fecha_actual)
+
+    #imprime las tareas
+    for tarea in tareas:
+        print(tarea.nombre)
+
+    return  HttpResponse("Tareas filtradas por fechas.")
 
 
 # Vistas basadas en funciones
